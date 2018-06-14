@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700|Sunflower:300,700" rel="stylesheet">
+    <title>Sign up</title>
+</head>
+<body>
+    <img src="img/logo.png" alt="logo" id="imgSmall">
+
+    <div id="pageBody">
+        <h1 id="title">TITLE GOES HERE</h1>
+
+        <img src="https://images.pexels.com/photos/776656/pexels-photo-776656.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" id="imgLarge">
+
+        <form action="http://localhost:3000/user" method="post" class="signUp">
+            <h2 id="subtitle">SUBTITLE GOES HERE</h2>
+
+            <p id="text">
+                Lorem ipsum dolor sit amet, his fugit dicant pericula in, sea modus doming aliquam no, no viderer similique mea.
+            </p>
+
+            <input type="text" name="firstName" class="button" id="firstName" placeholder="First name" required>
+            <input type="text" name="lastName" class="button" id="lastName" placeholder="Last name" required>
+            <input type="text" name="emailAddress" class="button" id="emailAddress" placeholder="Email address" required>
+
+            <input type="submit" id="submitBtn" value="Sign up">
+
+            <a href="" id="termsConditions">Terms and conditions</a>
+        </form>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){//jquery start
+  
+    $('form.signUp').submit(function(event){
+      event.preventDefault();
+  
+      //fetch data in signup-form
+      let firstName = $('.firstName').val();
+      let lastName = $('.lastName').val();
+      let emailAddress = $('.emailAddress').val();
+      //send data to database
+      $.ajax({
+        url: 'http://localhost:3000/user',
+        method: 'post',
+        data: {
+          "firstName": firstName,
+          "lastName": lastName,
+          "emailAddress": emailAddress
+        }
+    
+      }).done(function(saved_user){
+          //if successful post register message to user
+        alert('Thank you for signing up.')
+         window.location.reload();
+      });
+    });
+  
+
+
+
+
+
+    });//jquery end
+  </script>
+</html>

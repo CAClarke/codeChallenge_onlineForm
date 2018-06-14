@@ -32,6 +32,19 @@
             <a href="" id="termsConditions">Terms and conditions</a>
         </form>
 
+        <div id="users">
+            <p id="usersTitle">New users</p>
+            <% for (user of users){ %>
+                <p class="user">
+                    <%= user.emailAddress %>
+                </p>
+            <%};%> 
+        </div>
+    </div>
+    
+            
+        </div>
+
     </div>
 </body>
 </html>

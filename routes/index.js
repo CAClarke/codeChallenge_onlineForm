@@ -5,7 +5,17 @@ var User = require('../models/users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('pages/index', { title: 'Express' });
+
+  User.find({}, function(error, users){
+    console.log(users);
+      if(error){
+          res.send(error);
+      }
+      else{
+          res.render('pages/index',{users:users}
+        )};
+    res.render('pages/index', { title: 'Express' });
+  });
 });
 
 //uploads handler

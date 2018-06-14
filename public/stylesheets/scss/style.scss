@@ -114,9 +114,21 @@ form{
 #users{
     grid-area: users;
     border: 2px solid $pink;
-    height: auto;
+    background-color: white;
+    margin-left: 70px;
+    width: 47%;
+    height: 4.5em;
+    display: block;
+    overflow: auto;
+    #usersTitle{
+        padding: 5px;
+        font-size: 12px;
+        text-decoration: underline;
+        color: $pink;
+    }
     .user{
-        padding: 10px;
+        padding: 5px;
+        font-size: 12px;
     }
 }
 
@@ -137,7 +149,8 @@ form{
         grid-gap: 1em;
         grid-template-areas:"title"
                             "imgLarge"
-                            "form";
+                            "form"
+                            "users";
     }
 
     #title{
@@ -202,5 +215,10 @@ form{
     #termsConditions{
         grid-area: termsConditions;
         width: 100%;
+    }
+
+    #users{
+        grid-area: users;
+        width: 67%;
     }
 }
